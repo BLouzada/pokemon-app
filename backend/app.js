@@ -7,8 +7,8 @@ const pokemonService = require('./pokemon/pokemon.service')()
 
 app.get('/api/pokemons', async (req, res, next) => {
   try {
-    const data = await pokemonService.get()
-    res.send(data).status(200)
+    const data = await pokemonService.get(req.params.name)
+    res.send({data}).status(200)
   } catch (error) {
     next(error)
   }  

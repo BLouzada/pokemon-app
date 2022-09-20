@@ -4,6 +4,9 @@
       Gráficos de pokemons
       <Suspense>
         <PokemonByTypeCount/>
+        <template #fallback>
+          Carregando dados...
+        </template>
       </Suspense>
     </p>
   </div>

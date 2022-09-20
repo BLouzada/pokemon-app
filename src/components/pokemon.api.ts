@@ -12,13 +12,22 @@ type PokemonsCountByTypeResponse = {
   data: PokemonsCountByType[];
 };
 
-export async function getPokemons(){
+export type Pokemon = {
+  name: string;
+  url: string;
+  pokemonCount: number;};
+
+ export type GetPokemonResponse = {
+  data: Pokemon[];
+};
+
+export async function getPokemons(name?: string){
   try {
-    const { data } = await axiosClient.get('/api/pokemons')
+    const { data } = await axiosClient.get<GetPokemonResponse>('/api/pokemons', { params: { name } })
     return data
   } catch (error) {
     console.log("🚀 ~ file: pokemon.api.ts ~ line 12 ~ getPokemons ~ error", error)
-    
+    return {data: []}
   }
 }
 

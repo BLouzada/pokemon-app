@@ -4,9 +4,10 @@ module.exports = () => {
   const axiosClient = axios.create({
     baseURL: 'https://pokeapi.co/'
   })
-  async function get () {
-    const { data } = await axiosClient.get('/api/v2/pokemon/')
-    return data
+  async function get (name) {
+    // api não possui busca então precisei pegar todos pokemons de uma vez só
+    const response = await axiosClient.get('/api/v2/pokemon/', {params: {limit: 1200}})
+    return response.data.results
   }
 
   async function getCountByType () {

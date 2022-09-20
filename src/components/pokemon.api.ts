@@ -11,3 +11,12 @@ export async function getPokemons(){
     
   }
 }
+
+export async function getPokemonsCountByType(){
+  try {
+    const { data } = await axiosClient.get('/api/pokemons-count-by-type')
+    return data
+  } catch (error) {    
+  console.log("🚀 ~ file: pokemon.api.ts ~ line 20 ~ getPokemonsCountByType ~ error", error)
+  }
+}

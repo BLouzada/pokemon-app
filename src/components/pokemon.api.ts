@@ -15,9 +15,17 @@ type PokemonsCountByTypeResponse = {
 export type Pokemon = {
   name: string;
   url: string;
-  pokemonCount: number;};
+};
 
- export type GetPokemonResponse = {
+
+export type PokemonById = {
+  name: string;
+  weight: number;
+  height: number;
+  url: string;
+};
+
+export type GetPokemonResponse = {
   data: Pokemon[];
 };
 
@@ -26,7 +34,6 @@ export async function getPokemons(name?: string){
     const { data } = await axiosClient.get<GetPokemonResponse>('/api/pokemons', { params: { name } })
     return data
   } catch (error) {
-    console.log("🚀 ~ file: pokemon.api.ts ~ line 12 ~ getPokemons ~ error", error)
     return {data: []}
   }
 }
@@ -37,5 +44,13 @@ export async function getPokemonsCountByType(){
     return data
   } catch (error) {    
     return { data: [] }
+  }
+}
+export async function getPokemonById(pokemonId: string){
+  try {
+    const { data } = await axiosClient.get<PokemonById>(`/api/pokemons/${pokemonId}`)
+    return data
+  } catch (error) {    
+    return { name: '', url: '', weight: 0, height: 0 }
   }
 }

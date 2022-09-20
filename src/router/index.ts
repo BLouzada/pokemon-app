@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/pokemon-card',
     name: 'pokemon-card',
-    component: () => import(/* webpackChunkName: "pokemon-search" */ '../views/PokemonCard.vue')
+    component: () => import(/* webpackChunkName: "pokemon-search" */ '../views/PokemonCardViewer.vue')
   }
 ]
 

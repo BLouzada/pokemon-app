@@ -22,31 +22,6 @@ ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 
 export default defineComponent({
   name: 'PieChart',
-  components: {},
-  props: {
-    chartId: {
-      type: String,
-      default: 'pie-chart'
-    },
-    width: {
-      type: Number,
-      default: 400
-    },
-    height: {
-      type: Number,
-      default: 400
-    },
-    cssClasses: {
-      default: '',
-      type: String
-    },
-    styles: {
-      type: Object as PropType<Partial<CSSStyleDeclaration>>
-    },
-    plugins: {
-      type: Array as PropType<Plugin<'pie'>[]>
-    }
-  },
   async setup(props) {
     const response = await getPokemonsCountByType()
     const chartData = {
@@ -75,6 +50,31 @@ export default defineComponent({
         styles: props.styles,
         plugins: props.plugins
       })
+  },
+  components: {},
+  props: {
+    chartId: {
+      type: String,
+      default: 'pie-chart'
+    },
+    width: {
+      type: Number,
+      default: 400
+    },
+    height: {
+      type: Number,
+      default: 400
+    },
+    cssClasses: {
+      default: '',
+      type: String
+    },
+    styles: {
+      type: Object as PropType<Partial<CSSStyleDeclaration>>
+    },
+    plugins: {
+      type: Array as PropType<Plugin<'pie'>[]>
+    }
   }
 })
 

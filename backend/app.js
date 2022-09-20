@@ -7,8 +7,17 @@ const pokemonService = require('./pokemon/pokemon.service')()
 
 app.get('/api/pokemons', async (req, res, next) => {
   try {
-    const data = await pokemonService.get(req.params.name)
+    const data = await pokemonService.getAll()
     res.send({data}).status(200)
+  } catch (error) {
+    next(error)
+  }  
+})
+
+app.get('/api/pokemons/:id', async (req, res, next) => {
+  try {
+    const data = await pokemonService.getById(req.params.id)
+    res.send(data).status(200)
   } catch (error) {
     next(error)
   }  

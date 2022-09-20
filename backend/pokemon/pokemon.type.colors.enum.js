@@ -1,4 +1,4 @@
-const PokemonTypeColours = Object.freeze({
+const PokemonTypeColors = Object.freeze({
 	normal: '#A8A77A',
 	fire: '#EE8130',
 	water: '#6390F0',
@@ -19,4 +19,4 @@ const PokemonTypeColours = Object.freeze({
 	fairy: '#D685AD',
 });
 
-module.exports = PokemonTypeColours
+module.exports = PokemonTypeColors

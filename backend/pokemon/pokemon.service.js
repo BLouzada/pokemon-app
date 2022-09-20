@@ -1,5 +1,5 @@
 const axios = require('axios')
-const PokemonTypeColours = require('./pokemon.type.colours.enum')
+const PokemonTypeColors = require('./pokemon.type.colors.enum')
 module.exports = () => {
   const axiosClient = axios.create({
     baseURL: 'https://pokeapi.co/'
@@ -16,7 +16,7 @@ module.exports = () => {
       return{
         typeName: type.name,
         pokemonCount: typeResponse.data.pokemon.length,
-        typeColor: PokemonTypeColours[type.name] || '#777'
+        typeColor: PokemonTypeColors[type.name] || '#777'
       }
     })
     return Promise.all(promises)

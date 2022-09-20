@@ -17,7 +17,7 @@ app.get('/api/pokemons', async (req, res, next) => {
 app.get('/api/pokemons-count-by-type', async (req, res, next) => {
   try {
     const data = await pokemonService.getCountByType()
-    res.send(data).status(200)
+    res.send({data}).status(200)
   } catch (error) {
     next(error)
   }  

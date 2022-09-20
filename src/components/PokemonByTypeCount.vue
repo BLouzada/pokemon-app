@@ -48,13 +48,13 @@ export default defineComponent({
     }
   },
   async setup(props) {
-    const data = await getPokemonsCountByType()
+    const response = await getPokemonsCountByType()
     const chartData = {
-      labels: data.map((it: { typeName: any }) => it.typeName),
+      labels: response.data.map(it => it.typeName),
       datasets: [
         {
-          backgroundColor: data.map((it: { typeColor: any }) => it.typeColor),
-          data: data.map((it: { pokemonCount: any }) => it.pokemonCount)
+          backgroundColor: response.data.map(it => it.typeColor),
+          data: response.data.map(it => it.pokemonCount)
         }
       ]
     }

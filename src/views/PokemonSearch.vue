@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <p>
-      Bem vindo ao app pokémon
+      Busca de pokemons
     </p>
   </div>
 </template>
@@ -10,7 +10,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'HomeView',
+  name: 'PokemonSearch',
   components: {},
 });
 </script>

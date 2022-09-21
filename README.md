@@ -1,6 +1,17 @@
 # pokemon-app
 
 https://pokeapi.co/
+## Como subir local
+```
+Utilizar o vs code com a opção de debugger Launch backend
+Ou executar no terminal
+node backend/index.js
+
+Isso vai subir o backend na porta 8080
+após isso executar 
+npm run serve
+vai subir o frontend
+```
 
 ## Project setup
 ```

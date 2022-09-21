@@ -13,7 +13,15 @@ module.exports = () => {
 
   async function getById (pokemonId) {
     const response = await axiosClient.get(`/api/v2/pokemon/${pokemonId}`)
-    return response.data
+    const pokemonResponse = {
+      id: response.data.id,
+      name: response.data.name,
+      weight: response.data.weight,
+      height: response.data.height,
+      url: response.data.url,
+      picture: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${response.data.id}.png`,
+    }
+    return pokemonResponse
   }
 
   async function getCountByType () {

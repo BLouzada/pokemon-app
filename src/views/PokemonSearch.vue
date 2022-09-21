@@ -3,7 +3,7 @@
     <p>
       Busca de pokemons
     </p>
-    <div>você selecionou: {{ selectedPokemon }}</div>`
+    <div>você selecionou: {{ selectedPokemon }}</div>
     <el-autocomplete 
       v-model="state" 
       :fetch-suggestions="querySearchAsync"

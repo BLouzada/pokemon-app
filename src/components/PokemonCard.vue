@@ -3,7 +3,6 @@
   <el-card shadow="always" class="box-card">
     <el-row :gutter="20">
       <el-col :span="16">
-
         <el-descriptions class="margin-top" title="" :column="1" border>
           <el-descriptions-item>
             <template #label>
@@ -32,7 +31,7 @@
         </el-descriptions>
       </el-col>
       <el-col :span="8">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" class="image" />
+        <img :src="pokemon.picture"/>
       </el-col>
     </el-row>
   </el-card>
@@ -43,11 +42,14 @@ import { defineComponent } from 'vue'
 import { getPokemonById } from '../components/pokemon.api';
 
 export default defineComponent({
-  async setup(props) {
-    const response = await getPokemonById('1')
-    return { pokemon: response }
+  name: 'PokemonCard',
+  props: {
+    id: String
   },
-  name: 'PokemonCard'
+  async setup(props) {
+    const response = await getPokemonById(props.id)
+    return { pokemon: response }
+  }  
 })
 </script>
 <style>

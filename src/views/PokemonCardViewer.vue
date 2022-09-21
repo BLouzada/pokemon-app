@@ -9,19 +9,13 @@
       </el-col>
     </el-row>
     <el-row justify="center">
-      <el-col :span="3">
-        <el-button type="primary" :icon="ArrowLeft">Anterior</el-button>
-      </el-col>
       <el-col :span="6">
         <Suspense>
-          <PokemonCard />
+          <PokemonCard id="1"/>
           <template #fallback>
             Carregando dados...
           </template>
         </Suspense>
-      </el-col>
-      <el-col :span="4">
-        <el-button type="primary" :icon="ArrowRight">Próximo</el-button>
       </el-col>
     </el-row>
   </div>
